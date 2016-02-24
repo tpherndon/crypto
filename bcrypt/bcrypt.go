@@ -200,7 +200,8 @@ func bcrypt(password []byte, cost int, salt []byte) ([]byte, error) {
 
 	// Bug compatibility with C bcrypt implementations. We only encode 23 of
 	// the 24 bytes encrypted.
-	hsh := base64Encode(cipherData[:maxCryptedHashSize])
+	//hsh := base64Encode(cipherData[:maxCryptedHashSize])
+	hsh := base64Encode(cipherData)
 	return hsh, nil
 }
 
