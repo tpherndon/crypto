@@ -214,7 +214,8 @@ func expensiveBlowfishSetup(key []byte, cost uint32, salt []byte) (*blowfish.Cip
 
 	// Bug compatibility with C bcrypt implementations. They use the trailing
 	// NULL in the key string during expansion.
-	ckey := append(key, 0)
+	//ckey := append(key, 0)
+	ckey := key
 
 	c, err := blowfish.NewSaltedCipher(ckey, csalt)
 	if err != nil {
